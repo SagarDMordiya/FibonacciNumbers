@@ -18,7 +18,7 @@ export class FiboService {
         this.rounter.navigate(['/output'], {state: {response, input}});
       },
       (error) =>{
-        throw new Error('Method not implemented.');
+        throw new Error('Error occured');
       }
     );
     
