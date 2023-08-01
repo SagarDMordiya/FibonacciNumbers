@@ -24,6 +24,11 @@ public class FiboDataModel {
     public FiboDataModel() {
     }
 
+    public FiboDataModel(Integer fiboIndex, long fiboValue) {
+        this.fiboIndex = fiboIndex;
+        this.fiboValue = fiboValue;
+    }
+
     public Long getFiboId() {
         return fiboId;
     }
