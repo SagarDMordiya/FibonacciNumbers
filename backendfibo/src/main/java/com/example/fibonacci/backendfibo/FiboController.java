@@ -1,6 +1,5 @@
 package com.example.fibonacci.backendfibo;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,33 +15,33 @@ public class FiboController {
     @Autowired
     private FiboDataService fiboDataService;
 
-    public FiboController(FiboDataService fiboDataService){
+    public FiboController(FiboDataService fiboDataService) {
         this.fiboDataService = fiboDataService;
     }
 
-    // To test the application is running 
+    // To test the application is running
     // to be deleted
     @GetMapping("welcome")
-    public String testApi(){
+    public String testApi() {
         return "Welcome to Controller";
     }
-    
+
     // To get the first N Fibonacci Numbers
     @GetMapping("fiboNo/{n}")
-    public List<Long> getFiboNo(@PathVariable("n") Integer n) throws Exception{
-        if(n<= 0) throw new ArithmeticException("Value Should be Greater than 0");
+    public List<Long> getFiboNo(@PathVariable("n") Integer n) throws Exception {
+        if (n <= 0)
+            throw new ArithmeticException("Value Should be Greater than 0");
         List<Long> result = fiboDataService.getFiboNo(n);
-        if(result.isEmpty()){
+        if (result.isEmpty()) {
             throw new Exception("Error occured");
-        }
-        else return result;
+        } else
+            return result;
     }
-
 
     // To check the data in the Database
     @GetMapping("getAllFiboData")
-    public List<FiboDataModel> getAllFiboData(){
+    public List<FiboDataModel> getAllFiboData() {
         return fiboDataService.getAllFiboData();
-    } 
+    }
 
 }
