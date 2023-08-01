@@ -17,7 +17,7 @@ export class InputComponent {
   }
   onSubmit() {
     if (Number.isInteger(this.input)) {
-      console.log(this.input)
+      console.log(this.input);
       this.fiboService.getFiboNo(this.input);
     }
     else {

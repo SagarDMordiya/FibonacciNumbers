@@ -9,15 +9,16 @@ import { state } from '@angular/animations';
 export class FiboService {
 
   constructor(private httpClient: HttpClient, private rounter: Router) { }
-  api: String = "http://localhost:8080/"
+  api: String = "http://localhost:8080/";
 
   getFiboNo(input: any) {
-    console.log(this.api+"fiboNo/"+input);
+    // console.log(this.api+"fiboNo/"+input);
     this.httpClient.get(this.api+"fiboNo/"+input).subscribe(
       (response) => {
         this.rounter.navigate(['/output'], {state: {response, input}});
       },
       (error) =>{
+        alert("Something went wrong");
         throw new Error('Error occured');
       }
     );
